@@ -20,6 +20,7 @@ public class Tp3 {
             System.out.println(row.size());
         }
         System.out.println(image.size());
-
+        
+        baboon.Ecriture("C:\\Users\\utaab\\Downloads\\ImagesTestPGM\\ImagesTestPGM\\baboon2.pgm");
     }
 }

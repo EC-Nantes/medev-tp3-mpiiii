@@ -66,6 +66,28 @@ public class Pgm {
 
         return new Pgm(taillex, tailley, img, max);
     }
+    
+    public void Ecriture(String cheminFichier) throws FileNotFoundException, IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(cheminFichier))) {
+            writer.write("P2\n"); // format
+            writer.write("#\n");
+            writer.write(this.tailleX + " " + this.tailleY + "\n"); // dimensions
+            writer.write(this.maxVal + "\n");
+            
+            int count = 0;
+            for (ArrayList<Integer> row : this.image) {
+                for (Integer val : row) {
+                    String s = String.valueOf(val);
+                    if (count + s.length() > 70) { 
+                        writer.newLine(); 
+                        count = 0;
+                    }
+                    writer.write(s + " ");
+                    count += s.length() + 1;
+                }
+            }
+        }
+    }
 
     public int getTailleX() {
         return tailleX;

@@ -3,6 +3,8 @@
  */
 
 package cvub.tp3;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -10,7 +12,14 @@ package cvub.tp3;
  */
 public class Tp3 {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args) throws IOException {
+        Pgm baboon = Pgm.Lecture("C:\\Users\\utaab\\Downloads\\ImagesTestPGM\\ImagesTestPGM\\baboon.pgm");
+        ArrayList<ArrayList<Integer>> image = baboon.getImage();
+        for (ArrayList<Integer> row : image) {
+            System.out.println(row);
+            System.out.println(row.size());
+        }
+        System.out.println(image.size());
+
     }
 }
